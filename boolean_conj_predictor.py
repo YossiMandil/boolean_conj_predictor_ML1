@@ -1,6 +1,7 @@
 import sys
 import numpy as np
 
+# print thr result from the file
 def print_result(h,path = "output.txt"):
     try:
         file = open(path, "w")
@@ -19,6 +20,7 @@ def print_result(h,path = "output.txt"):
     except IOError as e:
         print("error in writing to file {0} {1}".format(e.strerror, e.errno))
 
+# check if x satsfied to hypothesis
 def check_hypothesis(h,x):
     try:
         for i in range(len(h)):
@@ -29,7 +31,7 @@ def check_hypothesis(h,x):
     except Exception:
         return 1
 
-
+#the algorithm in the exerecise
 def learn_boolean_conj(X, Y):
     h=[[1, 0] for i in range(len(X[0]))]
     for x, y in zip(X, Y):
@@ -45,7 +47,7 @@ def learn_boolean_conj(X, Y):
     return h
 
 
-
+# read data from file
 def read_data_set (path= "example1"):
     try:
         training_examples = np.loadtxt(path)
