@@ -11,11 +11,15 @@ def print_result(h,path = "output.txt"):
                 file.write("x{0},".format(i+1))
             if 0 in h[i]:
                 file.write("not(x{0}),".format(i+1))
-        last_exist_literal = exist_literals[-1]
-        if 1 in h[last_exist_literal]:
-            file.write("x{0}".format(last_exist_literal + 1))
-        if 0 in h[last_exist_literal]:
-            file.write("not(x{0})".format(last_exist_literal + 1))
+        try:
+            last_exist_literal = exist_literals[-1]
+            if 1 in h[last_exist_literal]:
+                file.write("x{0}".format(last_exist_literal + 1))
+            if 0 in h[last_exist_literal]:
+                file.write("not(x{0})".format(last_exist_literal + 1))
+        except Exception as e:
+            file.close()
+            return
         file.close()
     except IOError as e:
         print("error in writing to file {0} {1}".format(e.strerror, e.errno))
@@ -63,6 +67,7 @@ def read_data_set (path= "example1"):
 
 def main():
 
+    print_result([[],[],[]])
     if len(sys.argv) < 2:
         raise Exception("need path argument")
     X, Y = read_data_set(sys.argv[1])
