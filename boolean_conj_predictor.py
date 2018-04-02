@@ -24,7 +24,7 @@ def print_result(h,path = "output.txt"):
     except IOError as e:
         print("error in writing to file {0} {1}".format(e.strerror, e.errno))
 
-# check if x satsfied to hypothesis
+# check if x satesfaid to hypothesis
 def check_hypothesis(h,x):
     try:
         for i in range(len(h)):
