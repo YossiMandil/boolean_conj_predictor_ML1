@@ -67,7 +67,6 @@ def read_data_set (path = "example1"):
 
 def main():
 
-    print_result([[],[],[]])
     if len(sys.argv) < 2:
         raise Exception("need path argument")
     X, Y = read_data_set(sys.argv[1])
