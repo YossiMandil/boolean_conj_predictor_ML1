@@ -52,7 +52,7 @@ def learn_boolean_conj(X, Y):
 
 
 # read data from file
-def read_data_set (path= "example1"):
+def read_data_set (path = "example1"):
     try:
         training_examples = np.loadtxt(path)
     except Exception:
